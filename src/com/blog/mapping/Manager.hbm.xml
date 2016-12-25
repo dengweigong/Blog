@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.blog.entity">
+    <class name="Manager" table="manager">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <property name="account" />
+        <property name="password" />
+        <property name="role" />
+        <property name="notice" />
+        <set name="albums" cascade="all">
+        <key column="id"></key>
+        <one-to-many class="Album"/>
+        </set>
+        <set name="articles" cascade="all">
+        <key column="id"></key>
+        <one-to-many class="Article"></one-to-many>        
+        </set>
+    </class>
+</hibernate-mapping>
